@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   root 'rides#index'
 
   get '/rides', to: 'rides#index', as: 'rides'
+
   get '/rides/new', to: 'rides#new', as: 'new_ride'
+
   post '/rides', to: 'rides#create'
 
   get '/rides/:id', to: 'rides#show', as: 'ride'
