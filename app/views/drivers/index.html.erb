@@ -1,0 +1,11 @@
+<ol>
+  <% @drivers.each do |driver| %>
+  <li>
+     <strong><%= driver.name %></strong>
+     <%= driver.vin %>
+
+     <%= link_to("Edit", edit_driver_path(driver)) %>
+     <%= link_to("Delete", driver_path(driver.id), method: :delete, data: {confirm: "Are you sure to delete #{driver.name}"}) %>
+  </li>
+  <% end %>
+</ol>

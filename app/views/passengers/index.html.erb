@@ -1,0 +1,11 @@
+<ol>
+  <% @passengers.each do |passenger| %>
+  <li>
+     <strong><%= passenger.name %></strong>
+     <%= passenger.phone_num %>
+
+     <%= link_to("Edit", edit_passenger_path(passenger)) %>
+     <%= link_to("Delete", passenger_path(passenger.id), method: :delete, data: {confirm: "Are you sure to delete #{passenger.name}"}) %>
+  </li>
+  <% end %>
+</ol>
