@@ -3,11 +3,11 @@ Rails.application.routes.draw do
   root 'drivers#index'
 
   resources :drivers do
-    resources :trips, only: [:index, :show, :edit]
+    resources :trips, only: [:index]
   end
 
   resources :passengers do
-    resources :trips, only: [:index, :new, :create, :show, :edit]
+    resources :trips, only: [:index, :new, :create, :show, :edit, :destroy]
   end
   resources :trips
 end

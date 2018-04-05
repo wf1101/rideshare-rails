@@ -27,7 +27,6 @@ class TripsController < ApplicationController
   def show
     trip_id = params[:id]
     @trip = Trip.find(trip_id)
-
   end
 
   # do we need edit?
@@ -38,23 +37,26 @@ class TripsController < ApplicationController
   # do we need update?
   def update
     @trip = Trip.find(params[:id])
-    @trip.assign_atrributes(trip_params)
-    if @trip.save
+    @trip.assign_attributes(trip_params)
 
-      redirect_to trip_path(trip)
-    else
-      render :edit
+    if @trip.save
+      redirect_to passenger_trip_path(@trip.passenger_id, @trip.id)
     end
   end
 
   def destroy
     Trip.destroy(params[:id])
-    redirect_to trips_path
+    if params[:passenger_id]
+      redirect_to passenger_path(params[:passenger_id])
+    elsif
+      params[:driver_id]
+      redirect_to driver_path(params[:driver_id])
+    end
   end
 
   private
   def trip_params
-    params.require(:trip).permit(:rating)
+    params.require(:trip).permit(:rating, :review)
   end
 
 end
