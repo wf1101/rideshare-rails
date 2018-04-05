@@ -1,0 +1,28 @@
+<h4>
+  <% page_title ||= "Trip" %>
+  <%= page_title %>
+</h4>
+
+<ul>
+  <% @trips.each do |trip| %>
+  <li>Trip_id: # <%= trip.id %></li>
+  <li>
+    Date <%= trip.date %>
+  </li>
+  <li>
+    TEST dajladjl
+  </li>
+  <li>
+    Cost <%= trip.cost %>
+  </li>
+  <li>
+    Driver <%= trip.driver.name %>
+  </li>
+  <li>
+    Passenger <%= trip.passenger.name %>
+  </li>
+  <li>
+    Rating <%= trip.rating %>
+  </li>
+  <% end %>
+</ul>

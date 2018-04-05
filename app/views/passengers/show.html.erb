@@ -1,5 +1,5 @@
 <h2>Details for Passenger<% @passenger.name %></h2>
-<%= link_to("Request a Trip", trip_path) %>
+<%= link_to("Request a Trip", passenger_trips_path(@passenger), method: :post) %>
 
 
 <p>Name: <%= @passenger.name %></p>
