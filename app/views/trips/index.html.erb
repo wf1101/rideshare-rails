@@ -21,15 +21,17 @@
   <li>
     Passenger: <%= trip.passenger.name %>
   </li>
+
   <% if trip.rating %>
-  <li>  Rating: <%= trip.rating %>
+  <li>
+    Rating: <%= trip.rating %>
   </li>
   <% else %>
   <li>
     Rating: <%= form_for trip do |f| %>
   </li>
   <li>
-    <%= f.number_field :rating, option = {within: 1..5}%>
+    <%= f.number_field :rating, option = {within: 1..5} %>
   </li>
   <% end %>
   <% end %>
