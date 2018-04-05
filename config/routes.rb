@@ -10,6 +10,4 @@ Rails.application.routes.draw do
     resources :trips, only: [:index, :new, :create, :show, :edit]
   end
   resources :trips
-
-
 end
