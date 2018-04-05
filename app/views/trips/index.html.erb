@@ -3,26 +3,35 @@
   <%= page_title %>
 </h4>
 
+
+<% @trips.each do |trip| %>
 <ul>
-  <% @trips.each do |trip| %>
-  <li>Trip_id: # <%= trip.id %></li>
   <li>
-    Date <%= trip.date %>
+    Trip id: #<%= trip.id %>
   </li>
   <li>
-    TEST dajladjl
+    Date: <%= trip.date %>
   </li>
   <li>
-    Cost <%= trip.cost %>
+    Cost: <%= trip.cost %>
   </li>
   <li>
-    Driver <%= trip.driver.name %>
+    Driver: <%= trip.driver.name %>
   </li>
   <li>
-    Passenger <%= trip.passenger.name %>
+    Passenger: <%= trip.passenger.name %>
+  </li>
+  <% if trip.rating %>
+  <li>  Rating: <%= trip.rating %>
+  </li>
+  <% else %>
+  <li>
+    Rating: <%= form_for trip do |f| %>
   </li>
   <li>
-    Rating <%= trip.rating %>
+    <%= f.number_field :rating, option = {within: 1..5}%>
   </li>
   <% end %>
+  <% end %>
 </ul>
+<% end %>
