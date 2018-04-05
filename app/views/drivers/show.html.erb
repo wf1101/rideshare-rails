@@ -9,7 +9,7 @@
 <ul>
   <% @driver.trips.each do |tr| %>
   <li>
-    # <%= link_to "#{tr.id}", driver_trip_path(@driver.id, tr.id) %>
+    <%= link_to "# #{tr.id}", driver_trip_path(@driver.id, tr.id) %>
     <%= tr.date %>
     <%= link_to "#{tr.driver.name}", driver_path(@driver) %>
     <%= link_to "#{tr.passenger.name}", passenger_path(tr.passenger) %>
