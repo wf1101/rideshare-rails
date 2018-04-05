@@ -4,3 +4,17 @@
 <p>Vin: <%= @driver.vin %></p>
 
 <%= link_to("Edit", edit_driver_path(@driver)) %>
+
+
+<ul>
+  <% @driver.trips.each do |tr| %>
+  <li>
+    # <%= link_to "#{tr.id}", driver_trip_path(@driver) %>
+    <%= tr.date %>
+    <%= link_to "#{tr.driver.name}", driver_path(@driver) %>
+    <%= link_to "#{tr.passenger.name}", passenger_path(tr.passenger) %>
+    <%= tr.cost %>
+    <%= tr.rating %>
+  </li>
+  <% end %>
+</ul>

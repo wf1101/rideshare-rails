@@ -4,6 +4,7 @@
 
 <p>Name: <%= @passenger.name %></p>
 <p>Vin: <%= @passenger.phone_num %></p>
+<%= link_to("Edit", edit_passenger_path(@passenger)) %>
 
 <ul>
   <% @passenger.trips.each do |tr| %>
@@ -17,5 +18,3 @@
   </li>
   <% end %>
 </ul>
-
-<%= link_to("Edit", edit_passenger_path(@passenger)) %>
