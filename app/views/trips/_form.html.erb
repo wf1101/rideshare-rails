@@ -5,14 +5,8 @@
 
 <%= render partial: "layouts/errors_messages", locals: {model: @trip } %>
 
-<%= form_for @trip do |f| %>
-
-<%= f.label :rating %>
-<%= f.text_field :rating %>
-
-<%= f.label :driver, "Driver" %>
-<%= f.select :driver_id, Driver.all.map {|dri| [dri.name, dri.id]} %>
-
-<%= f.submit %>
-
-<% end %>
+<%= @trip.date %>
+<%= @trip.cost %>
+<%= @trip.driver_id %>
+<%= @trip.passenger_id %>
+<%= @trip.raiting %>

@@ -18,19 +18,33 @@ class TripsController < ApplicationController
     end
 
     def show
-      trip_id = params[:id]
-      @trip = Trip.find(trip_id)
+      new_trip_data = {
+        date: Date.today,
+        driver_id: Driver.all.sample.id,
+        passenger_id: params[:passenger_id],
+        cost: rand(10..40)
+      }
+      @trip = Trip.create(new_trip_data)
+
+      if @trip.save
+        redirect_to trips_path
+      else
+        render :new
+      end
+
     end
 
+    # do we need edit?
     def edit
       @trip = Trip.find(params[:id])
     end
 
+    # do we need update?
     def update
       @trip = Trip.find(params[:id])
       @trip.assign_atrributes(trip_params)
       if @trip.save
-        #  ?
+
         redirect_to trip_path(trip)
       else
         render :edit
