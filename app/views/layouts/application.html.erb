@@ -10,17 +10,20 @@
 
 <body>
   <header>
-    <h1>Welcome to AdUberA</h1>
+    <%= image_tag "logo.png", alt: "Site logo", class: "logo" %>
+    <!-- <h1>AdUberA</h1> -->
   </header>
   <nav>
     <ul>
-    <li><%= link_to "Manage Drivers", drivers_path %></li>
-    <li><%= link_to "Add Driver", new_driver_path %></li>
-    <li><%= link_to "Manage Passengers", passengers_path %></li>
-    <li><%= link_to "Add Passenger", new_passenger_path %></li>
+      <li><%= link_to "Manage Drivers", drivers_path %></li>
+      <li><%= link_to "Add Driver", new_driver_path %></li>
+      <li><%= link_to "Manage Passengers", passengers_path %></li>
+      <li><%= link_to "Add Passenger", new_passenger_path %></li>
     </ul>
   </nav>
-  <%= yield %>
+  <main>
+    <%= yield %>
+  </main>
   <footer>&copy; 2018 AdUberA, Inc</footer>
 </body>
 </html>

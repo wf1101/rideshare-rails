@@ -1,0 +1,16 @@
+<div class="home-page">
+  <section class="left-side">
+    <p>This is your first choice when you need a ride</p>
+    <%= image_tag "index_image.jpeg", alt: "Homepage background", class: "back-pic" %>
+  </section>
+  <section class="right-side">
+    <ul>
+      <li>
+        <%= link_to "I AM Driver", drivers_path %>
+      </li>
+      <li>
+        <%= link_to "I AM Passenger", passengers_path %>
+      </li>
+    </ul>
+  </section>
+</div>
