@@ -4,7 +4,7 @@ class TripsController < ApplicationController
   end
 
   def new
-  
+    # AdUbera's homepage
   end
 
   def create
@@ -12,7 +12,7 @@ class TripsController < ApplicationController
       date: Date.today,
       driver_id: Driver.all.sample.id,
       passenger_id: params[:passenger_id],
-      cost: rand(10..40)
+      cost: rand(1000..4000)
     }
 
     @trip = Trip.new(new_trip_data)

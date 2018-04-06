@@ -13,10 +13,10 @@
     <li>
       Date
     </li>
-    <li>
+    <li class="names">
       Driver
     </li>
-    <li>
+    <li class="names">
       Passenger
     </li>
     <li>
@@ -24,6 +24,12 @@
     </li>
     <li>
       Rating
+    </li>
+    <li>
+      Review
+    </li>
+    <li>
+      Delete
     </li>
   </ul>
 </strong>
@@ -35,10 +41,10 @@
   <li>
     <%= @trip.date %>
   </li>
-  <li>
+  <li class="names">
     <%= link_to "#{@trip.driver.name}", driver_path(@trip.driver) %>
   </li>
-  <li>
+  <li class="names">
     <%= link_to "#{@trip.passenger.name}", passenger_path(@trip.passenger) %>
   </li>
   <li>

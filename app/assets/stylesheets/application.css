@@ -27,8 +27,12 @@ ul {
 
 .trip_list > li {
   margin-left: 20px;
-  width: 70px;
+  width: 100px;
   text-align:
+}
+
+.trip_list > .names {
+  width: 200px;
 }
 
 .home-page {

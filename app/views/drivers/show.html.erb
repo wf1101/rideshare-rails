@@ -1,20 +1,68 @@
 <h2>Details for Driver<% @driver.name %></h2>
-
-<p>Name: <%= @driver.name %></p>
-<p>Vin: <%= @driver.vin %></p>
+<ul>
+  <li>Name: <%= @driver.name %></li>
+  <li>Vin: <%= @driver.vin %></li>
+  <li>Total Earing: $<%= @driver.get_total_earning %></li>
+  <li>Average Rating: <%= @driver.get_average_rating %> ⭐</li>
+</ul>
 
 <%= link_to("Edit", edit_driver_path(@driver)) %>
 
+<strong>
+  <ul class="trip_list">
+    <li>
+      Trip ID
+    </li>
+    <li>
+      Date
+    </li>
+    <li class="names">
+      Driver
+    </li>
+    <li class="names">
+      Passenger
+    </li>
+    <li>
+      Cost
+    </li>
+    <li>
+      Rating
+    </li>
+    <li>
+      Review
+    </li>
+    <li>
+      Delete
+    </li>
+  </ul>
+</strong>
 
-<ul>
-  <% @driver.trips.each do |tr| %>
+
+<% @driver.trips.each do |tr| %>
+<ul class="trip_list">
   <li>
     <%= link_to "# #{tr.id}", passenger_trip_path(tr.passenger.id, tr.id) %>
+  </li>
+  <li>
     <%= tr.date %>
+  </li>
+  <li class="names">
     <%= link_to "#{tr.driver.name}", driver_path(@driver) %>
+  </li>
+  <li class="names">
     <%= link_to "#{tr.passenger.name}", passenger_path(tr.passenger) %>
+  </li>
+  <li>
     <%= tr.cost %>
+  </li>
+  <li>
     <%= tr.rating %>
   </li>
-  <% end %>
+  <li>
+    <%= link_to("Add A Review", edit_passenger_trip_path(tr.passenger.id, tr.id)) %>
+  </li>
+  <li>
+    <%= link_to("Delete", passenger_trip_path(tr.passenger.id, tr.id), method: :delete, data: {confirm: "Are you sure you want to delete Trip #{tr.id}"}) %>
+  </li>
 </ul>
+<% end %>
