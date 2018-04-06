@@ -2,13 +2,13 @@
   <section class="error_message">
     <h3>There are some problems:</h3>
     <ul>
-      <% model.errors.messages.each do |field, problems| %>
-      <% problems.each do |problem| %>
-      <li>
-        <strong><%= field %></strong>
-        <%= problem %>
-      </li>
-      <% end %>
+        <% model.errors.messages.each do |field, problems| %>
+        <% problems.each do |problem| %>
+        <li>
+          <strong><%= field %></strong>
+          <%= problem %>
+        </li>
+        <% end %>
       <% end %>
     </ul>
   </section>

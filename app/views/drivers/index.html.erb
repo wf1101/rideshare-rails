@@ -1,12 +1,33 @@
-<ol>
-  <% @drivers.each do |driver| %>
-  <li>
+<strong>
+  <ul class="index_list">
+    <li>
+      ID
+    </li>
+    <li class="names">
+      Driver
+    </li>
+    <li>
+      Edit
+    </li>
+    <li>
+      Delete
+    </li>
+  </ul>
+</strong>
 
-    <strong><%= link_to(driver.name, driver_path(driver)) %></strong>
-
-
-     <%= link_to("Edit", edit_driver_path(driver)) %>
-     <%= link_to("Delete", driver_path(driver.id), method: :delete, data: {confirm: "Are you sure to delete #{driver.name}"}) %>
+<% @drivers.each do |driver| %>
+<ul class="index_list">
+  <li>#
+    <%= driver.id %>
   </li>
-  <% end %>
-</ol>
+  <li class="names">
+    <strong><%= link_to(driver.name, driver_path(driver)) %></strong>
+  </li>
+  <li>
+    <%= link_to("Edit", edit_driver_path(driver)) %>
+  </li>
+  <li>
+    <%= link_to("Delete", driver_path(driver.id), method: :delete, data: {confirm: "Are you sure to delete #{driver.name}"}) %>
+  </li>
+</ul>
+<% end %>

@@ -20,7 +20,7 @@ ul {
   flex-direction: column;
 }
 
-.trip_list {
+.trip_list, .index_list {
   display: flex;
   flex-direction: row;
 }
@@ -31,7 +31,16 @@ ul {
   text-align:
 }
 
+.index_list > li {
+  margin-left: 20px;
+  width: 100px;
+}
+
 .trip_list > .names {
+  width: 200px;
+}
+
+.index_list > .names {
   width: 200px;
 }
 

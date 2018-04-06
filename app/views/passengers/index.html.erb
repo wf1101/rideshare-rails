@@ -1,11 +1,33 @@
-<ol>
-  <% @passengers.each do |passenger| %>
-  <li>
-    
-     <strong><%= link_to(passenger.name, passenger_path(passenger)) %></strong>
+<strong>
+  <ul class="index_list">
+    <li>
+      ID
+    </li>
+    <li class="names">
+      Driver
+    </li>
+    <li>
+      Edit
+    </li>
+    <li>
+      Delete
+    </li>
+  </ul>
+</strong>
 
-     <%= link_to("Edit", edit_passenger_path(passenger)) %>
-     <%= link_to("Delete", passenger_path(passenger.id), method: :delete, data: {confirm: "Are you sure to delete #{passenger.name}"}) %>
+<% @passengers.each do |passenger| %>
+<ul class="index_list">
+  <li>#
+    <%= passenger.id %>
   </li>
-  <% end %>
-</ol>
+  <li class="names">
+    <strong><%= link_to(passenger.name, passenger_path(passenger)) %></strong>
+  </li>
+  <li>
+    <%= link_to("Edit", edit_passenger_path(passenger)) %>
+  </li>
+  <li>
+    <%= link_to("Delete", passenger_path(passenger.id), method: :delete, data: {confirm: "Are you sure to delete #{passenger.name}"}) %>
+  </li>
+</ul>
+<% end %>
