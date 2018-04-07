@@ -5,14 +5,32 @@
 
 <%= render partial: "layouts/errors_messages", locals: {model: @passenger } %>
 
-<%= form_for @passenger do |f| %>
-<%= f.label :name %>
-<%= f.text_field :name %>
-
-<%= f.label :phone_num %>
-<%= f.text_field :phone_num %>
-
-
-<%= f.submit %>
-
-<% end %>
+<div class="new_page">
+  <%= form_for @passenger do |f| %>
+  <ul class="new_info">
+    <li>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </li>
+    <li>
+      <%= f.label :phone_num %>
+      <%= f.text_field :phone_num %>
+    </li>
+  </ul>
+  <ul class="new_info">
+    <li>
+      <%= f.label :location %>
+      <%= f.text_field :location %>
+    </li>
+    <li>
+      <%= f.label :email %>
+      <%= f.text_field :email %>
+    </li>
+  </ul>
+  <ul class="new_info_bottom">
+    <li>
+      <%= f.submit %>
+    </li>
+  </ul>
+  <% end %>
+</div>
