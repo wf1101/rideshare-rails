@@ -6,13 +6,31 @@
 <%= render partial: "layouts/errors_messages", locals: {model: @driver } %>
 
 <div class="new_page">
-<%= form_for @driver do |f| %>
-<%= f.label :name %>
-<%= f.text_field :name %>
-
-<%= f.label :vin %>
-<%= f.text_field :vin %>
-
-<%= f.submit %>
-<% end %>
+  <%= form_for @driver do |f| %>
+  <ul class="new_info">
+    <li>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </li>
+    <li>
+      <%= f.label :vin %>
+      <%= f.text_field :vin %>
+    </li>
+  </ul>
+  <ul class="new_info">
+    <li>
+      <%= f.label :car_make %>
+      <%= f.select "car_make",raw("<option>Toyota</option><option>Honda</option><option>Tesla</option><option>Lamborghini</option><option>Ford</option><option>Hyundai</option><option>Subaru</option><option>Volkswagen</option><option>BMW</option><option>Mercedes</option><option>Aston Martin</option><option>Ferrari</option><option>Jaguar</option>") %>
+    </li>
+    <li>
+      <%= f.label :car_year %>
+      <%= select_year(Date.new(2015), field_name: "car_year") %>
+    </li>
+  </ul>
+  <ul class="new_info_bottom">
+    <li>
+      <%= f.submit %>
+    </li>
+  </ul>
+  <% end %>
 </div>
