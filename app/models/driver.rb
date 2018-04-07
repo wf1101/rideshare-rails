@@ -2,6 +2,7 @@ class Driver < ApplicationRecord
   has_many :trips
   validates :name, presence: true
   validates :vin, presence: true, uniqueness: true
+  # paginates_per 10
 
   def get_total_earning
     my_trips = self.trips.where.not(cost: nil)

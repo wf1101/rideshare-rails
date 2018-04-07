@@ -1,5 +1,4 @@
 
-
 <strong>
   <ul class="trip_list">
     <li>
@@ -39,11 +38,20 @@
   <li>
     <%= @trip.cost %>
   </li>
+
+  <% if @trip.rating %>
   <li>
-    <%= @trip.rating %>
+    Rating: <%= @trip.rating %>
+  </li>
+  <% else %>
+  <li>
+    Rating: <%= form_for @trip do |f| %>
+    <%= f.number_field :rating, option = {within: 1..5} %>
+    <%= f.submit %>
+    <% end %>
   </li>
 
-
+  <% end %>
   <%= form_for @trip do |f| %>
   <%= f.label :review %>
   <%= f.text_area :review %>

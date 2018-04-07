@@ -7,8 +7,12 @@
   <li><strong>Total Spending:</strong> $<%= @passenger.get_total_spending %></li>
 </ul>
 <div class="edit_detail">
-<%= link_to("Edit", edit_passenger_path(@passenger)) %>
-<%= link_to("Request a Trip", passenger_trips_path(@passenger), method: :post) %>
+  <%= link_to("Edit", edit_passenger_path(@passenger)) %>
+
+  <% if @passenger.rated_all_trips? %>
+  <%= link_to("Request a Trip", passenger_trips_path(@passenger), method: :post) %>
+  <% end %>
+
 </div>
 
 <strong>
@@ -58,9 +62,20 @@
   <li>
     $<%= tr.cost / 100 %>
   </li>
+
+  <% if tr.rating %>
   <li>
-    <%= tr.rating %>
+    Rating: <%= tr.rating %>
   </li>
+  <% else %>
+  <li>
+    Rating: <%= form_for tr do |f| %>
+    <%= f.number_field :rating, option = {within: 1..5} %>
+    <%= f.submit %>
+    <% end %>
+  </li>
+  <% end %>
+
   <li>
     <%= link_to("Add A Review", edit_passenger_trip_path(@passenger.id, tr.id)) %>
   </li>

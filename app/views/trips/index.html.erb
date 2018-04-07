@@ -1,28 +1,44 @@
-<h4>
-  <% page_title ||= "Trip" %>
-  <%= page_title %>
-</h4>
 
+<strong>
+  <ul class="trip_list">
+    <li>
+      Trip ID
+    </li>
+    <li>
+      Date
+    </li>
+    <li>
+      Driver
+    </li>
+    <li>
+      Passenger
+    </li>
+    <li>
+      Cost
+    </li>
+    <li>
+      Rating
+    </li>
+  </ul>
+</strong>
 
 <% @trips.each do |trip| %>
-<ul>
-
+<ul class="trip_list">
   <li>
-    Trip id: #<%= trip.id %>
+    <%= link_to "# #{trip.id}", passenger_trip_path(trip.passenger_id, trip.id) %>
   </li>
   <li>
-    Date: <%= trip.date %>
+    <%= trip.date %>
   </li>
   <li>
-    Cost: $<%= trip.cost / 100 %>
+    <%= link_to "#{trip.driver.name}", driver_path(trip.driver) %>
   </li>
   <li>
-    Driver: <%= trip.driver.name %>
+    <%= link_to "#{trip.passenger.name}", passenger_path(trip.passenger) %>
   </li>
   <li>
-    Passenger: <%= trip.passenger.name %>
+    $<%= trip.cost %>
   </li>
-
   <% if trip.rating %>
   <li>
     Rating: <%= trip.rating %>
@@ -30,11 +46,12 @@
   <% else %>
   <li>
     Rating: <%= form_for trip do |f| %>
-  </li>
-  <li>
     <%= f.number_field :rating, option = {within: 1..5} %>
+    <%= f.submit %>
+    <% end %>
   </li>
   <% end %>
-  <% end %>
+
+
 </ul>
 <% end %>

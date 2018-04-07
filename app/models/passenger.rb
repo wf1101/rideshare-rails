@@ -4,12 +4,15 @@ class Passenger < ApplicationRecord
   validates :phone_num, presence: true
 
   def get_total_spending
-    my_trips = self.trips
     total_spending = 0
-    my_trips.each do |tr|
+    self.trips.each do |tr|
       total_spending += tr.cost / 100
     end
     return total_spending.round(2)
   end
 
+  def rated_all_trips?
+    return false if self.trips.any? {|tr| tr.rating.nil?}
+    return true
+  end
 end
