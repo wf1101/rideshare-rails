@@ -1,3 +1,61 @@
 // Place all the styles related to the trips controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.home-page > .right-side ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.home-page > .left-side {
+  display: flex;
+  flex-direction: column;
+  margin-left: 100px;
+}
+.quote {
+  font-size: 2em;
+  height: 20%;
+  margin-right: 20%;
+  font-family: fantasy;
+  text-align: center;
+  color: rgb(119, 113, 103)
+}
+
+.left-side {
+  width: 70%;
+}
+
+.right-side {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: left;
+  margin-right: 150px;
+}
+
+.right-side > ul {
+  margin-left: 0;
+}
+
+.right-side .button_like {
+  margin-left: 0;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: 2em;
+  background-color: rgb(62, 121, 76);
+  color: white;
+}
+
+.button_like > a:visited {
+  color: white;
+}
+.button_like > a:hover {
+  color: black;
+}
+
+.button_like {
+  width: 300px;
+  height: 60px;
+  text-align: center;
+  padding-top: 15px;
+}

@@ -1,13 +1,15 @@
-<h2>Details for Passenger<% @passenger.name %></h2>
-<%= link_to("Request a Trip", passenger_trips_path(@passenger), method: :post) %>
+<h1 class="details">Details for Passenger: <%= @passenger.name %></h1>
 
-<ul>
-  <li>Name: <%= @passenger.name %></li>
-  <li>Vin: <%= @passenger.phone_num %></li>
-  <li>Total Spending: $<%= @passenger.get_total_spending %></li>
+<ul class="show_info">
+  <li><strong>Name:</strong> <%= @passenger.name %></li>
+
+  <li><strong>Vin:</strong> <%= @passenger.phone_num %></li>
+  <li><strong>Total Spending:</strong> $<%= @passenger.get_total_spending %></li>
 </ul>
-
+<div class="edit_detail">
 <%= link_to("Edit", edit_passenger_path(@passenger)) %>
+<%= link_to("Request a Trip", passenger_trips_path(@passenger), method: :post) %>
+</div>
 
 <strong>
   <ul class="trip_list">
@@ -54,7 +56,7 @@
     <%= link_to "#{tr.passenger.name}", passenger_path(@passenger) %>
   </li>
   <li>
-    <%= tr.cost %>
+    $<%= tr.cost / 100 %>
   </li>
   <li>
     <%= tr.rating %>

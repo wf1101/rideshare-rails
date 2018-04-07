@@ -9,7 +9,7 @@ class Passenger < ApplicationRecord
     my_trips.each do |tr|
       total_spending += tr.cost / 100
     end
-    return total_spending
+    return total_spending.round(2)
   end
 
 end

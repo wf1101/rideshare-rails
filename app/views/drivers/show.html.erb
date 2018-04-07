@@ -1,12 +1,15 @@
-<h2>Details for Driver<% @driver.name %></h2>
-<ul>
-  <li>Name: <%= @driver.name %></li>
-  <li>Vin: <%= @driver.vin %></li>
-  <li>Total Earing: $<%= @driver.get_total_earning %></li>
-  <li>Average Rating: <%= @driver.get_average_rating %> ⭐</li>
+<h1 class="details">Details for Driver: <%= @driver.name %></h1>
+
+<ul class="show_info">
+  <li><strong>Name:</strong> <%= @driver.name %></li>
+  <li><strong>Vin:</strong> <%= @driver.vin %></li>
+  <li><strong>Total Earning:</strong> $<%= @driver.get_total_earning %></li>
+  <li><strong>Average Rating:</strong> <%= @driver.get_average_rating %> ⭐</li>
 </ul>
 
-<%= link_to("Edit", edit_driver_path(@driver)) %>
+<div class="edit_detail">
+  <%= link_to("Edit", edit_driver_path(@driver)) %>
+</div>
 
 <strong>
   <ul class="trip_list">
@@ -53,7 +56,7 @@
     <%= link_to "#{tr.passenger.name}", passenger_path(tr.passenger) %>
   </li>
   <li>
-    <%= tr.cost %>
+    $<%= tr.cost / 100 %>
   </li>
   <li>
     <%= tr.rating %>
